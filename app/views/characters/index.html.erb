@@ -17,8 +17,20 @@
 
       <% @characters.each do |character| %>
       <tr>
-        <td><%= character.movies.title %></td>
-        <td><%= character.actor.name %></td>
+        <td>
+          <% if character.movies.present? %>
+            <a href="/movies/<%= character.movies.id %>">
+              <%= character.movies.title %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if character.actor.present? %>
+            <a href="/actors/<%= character.actor.id %>">
+              <%= character.actor.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= character.name %></td>
         <td>
           <a href="/characters/<%= character.id %>" class="btn btn-primary">Show</a>
