@@ -5,4 +5,6 @@ class Character < ApplicationRecord
 
   # Validations
 
+  validates :movies_id, :presence => true
+
 end
