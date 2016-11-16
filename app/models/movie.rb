@@ -1,6 +1,10 @@
 class Movie < ApplicationRecord
   # Direct associations
 
+  has_many   :characters,
+             :foreign_key => "movies_id",
+             :dependent => :destroy
+
   belongs_to :director,
              :counter_cache => :filmography_count
 
